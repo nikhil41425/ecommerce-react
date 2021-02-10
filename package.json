@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/nikhil41425/ecommerce-react/issues"
   },
-  "homepage": "https://github.com/nikhil41425/ecommerce-react#readme"
+  "homepage": "https://github.com/nikhil41425/ecommerce-react#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "expess": "0.0.1-security",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.15",
+    "nodemailer": "^6.4.17",
+    "razorpay": "^2.0.6"
+  }
 }
