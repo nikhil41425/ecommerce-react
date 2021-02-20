@@ -1,20 +1,25 @@
 var mongoose=require('mongoose');
+
 var Schema=mongoose.Schema;
 
-var UserSchema=new Schema(
+var UserSchema = new Schema(
     {
-        username:{
+        username: {
+            type: String,
+            required:true
+        },
+        password: {
             type:String,
             required:true
         },
-        password:{
+        emailId: {
             type:String,
-            required:true
-        },
-        emailId:{
-            type:String,
-            required:true,
+            require:true,
             index:true
+        },
+        role:{
+            type:String,
+            default:"Customer"
         }
     }
 );
