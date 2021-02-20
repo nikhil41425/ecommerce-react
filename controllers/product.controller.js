@@ -1,3 +1,5 @@
+var url=require('url');
+
 var  productModel=require('../models/product.model');
 
 exports.addProduct=function(request,response){
@@ -72,4 +74,27 @@ exports.deleteProduct=function(request,response){
             response.send(res);
         }
     })
+}
+
+exports.getProductsByChoice=function(request,response){
+
+    var choice=request.query.choice;
+
+    switch(choice){
+
+        case "asc": productModel.find({}).sort({"price":1}).exec((err,docs)=>{
+            console.log(docs);
+            response.send(docs);
+
+        });
+        break;
+
+        case "desc":productModel.find({}).sort({"price":-1}).exec((err,docs)=>{
+            console.log(docs);
+            response.send(docs);
+            
+        });
+        break;
+    }
+
 }

@@ -4,11 +4,14 @@ var productRouter=express.Router();
 
 var productController=require('../controllers/product.controller');
 
-productRouter.post('/addProduct',productController.addProduct);
-productRouter.get('/allProducts',productController.allProducts);
+var AuthConfig=require('../middlewares/auth.middleware');
+
+productRouter.post('/addProduct',AuthConfig.authMiddleware,productController.addProduct);
+productRouter.get('/allProducts',AuthConfig.authMiddleware,productController.allProducts);
 productRouter.get('/product/:id',productController.getProductById);
-productRouter.put('/updateProduct/:id',productController.updateProduct);
+productRouter.put('/updateProduct/:id',AuthConfig.authMiddleware,productController.updateProduct);
 productRouter.delete('/delete/:id',productController.deleteProduct);
+productRouter.get('/getProductsByChoice',productController.getProductsByChoice);
 
 
 
